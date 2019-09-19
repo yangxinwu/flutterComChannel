@@ -10,7 +10,13 @@ class FlutterCommtool {
     return data;
   }
 
-  static Future<String> execute(name) async {
+  static Future<Map<String, String>> getStrings(Map<String, String> map) async {
+    final Map<String, String> data =
+        await _channel.invokeMethod('getString', map);
+    return data;
+  }
+
+  static Future<dynamic> execute(name) async {
     final String data = await _channel.invokeMethod('execute', name);
     return data;
   }
