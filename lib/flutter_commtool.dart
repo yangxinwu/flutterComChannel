@@ -26,12 +26,28 @@ class FlutterCommtool {
     return await _channel.invokeMethod('goPage', page);
   }
 
-  static Future<String> get(Map<String, String> map) async {
-    return await _channel.invokeMethod('get', map);
+  static Future<String> get(String tag, String url,
+      {Map<String, String> map}) async {
+    Map<String, String> finalMal = Map();
+    finalMal["TAG"] = tag;
+    finalMal["url"] = url;
+
+    if (map != null) {
+      finalMal.addAll(map);
+    }
+    return await _channel.invokeMethod('get', finalMal);
   }
 
-  static Future<String> post(Map<String, String> map) async {
-    return await _channel.invokeMethod('post', map);
+  static Future<String> post(String tag, String url,
+      {Map<String, String> map}) async {
+    Map<String, String> finalMal = Map();
+    finalMal["TAG"] = tag;
+    finalMal["url"] = url;
+
+    if (map != null) {
+      finalMal.addAll(map);
+    }
+    return await _channel.invokeMethod('post', finalMal);
   }
 
   static Future<dynamic> cancel(String tag) async {
