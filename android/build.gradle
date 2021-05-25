@@ -2,7 +2,7 @@ group 'com.yan.flutter_commtool'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.3.10'
+    ext.kotlin_version = '1.4.20'
     repositories {
         google()
         jcenter()
@@ -32,6 +32,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 16
+        compileSdkVersion 29
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
